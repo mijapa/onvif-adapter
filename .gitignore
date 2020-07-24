@@ -1,0 +1,6 @@
+*.swp
+*.sha256sum
+*.tgz
+SHA256SUMS
+node_modules/
+package-lock.json
