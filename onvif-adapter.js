@@ -62,6 +62,7 @@ class OnvifAdapter extends Adapter {
           name: camera.deviceInformation.Name,
         };
         camera.core.getScopes().then((response) => {
+          if (response.data.GetScopesResponse.Scopes){
           data.scopes =
             response.data.GetScopesResponse.Scopes.map((s) => s.ScopeItem);
 
@@ -69,6 +70,7 @@ class OnvifAdapter extends Adapter {
           if (!data.scopes.includes(nvt)) {
             return;
           }
+}
 
           const dev = new OnvifDevice(this, data, camera, cd.username,
                                       cd.password, this.config.enablePTZ);
